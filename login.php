@@ -15,7 +15,7 @@ include 'koneksi.php';
 		<section class="vh-50">
   			<div class="container py-5 h-100">
     			<div class="row d-flex justify-content-center align-items-center h-100">
-      				<div class="col-12 col-md-3 col-lg-3 col-xl-5 mt-2">
+      				<div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4 mt-2">
        					 <div class="card shadow-2-strong" style="border-radius: 1rem;">
 						 <br>
         					  <div class="card-body p-3 text-center "
