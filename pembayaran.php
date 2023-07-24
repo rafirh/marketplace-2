@@ -39,10 +39,10 @@
   <!-- NAVBAR -->
   <?php include"navbar.php"; ?>
   <div class="container">
-    <h2>Konfrimasi Pembayaran</h2>
+    <h2>Konfirmasi Pembayaran</h2>
     <?php 
     $ambil = $koneksi->query("SELECT * FROM pembelian 
-      JOIN TOKO ON pembelian.id_toko=toko.id_toko  
+      JOIN toko ON pembelian.id_toko=toko.id_toko  
       JOIN pelanggan ON pembelian.id_pelanggan=pelanggan.id_pelanggan
       WHERE id_pembelian   ='$idpem'");
     while($pecah = $ambil->fetch_assoc()) {
@@ -71,11 +71,11 @@
         <div class="input-field col s12">
           <i class="material-icons prefix">account_balance</i>
           <select name="bank"  class="validate" required>
-            <option value=" "></option>
-            <option value="bca">bca</option>
-            <option value="bni">bni</option>
-            <option value="bri">bri</option>
-            <option value="mandiri">mandiri</option>
+            <option value="" selected disabled>Pilih</option>
+            <option value="bca">BCA</option>
+            <option value="bni">BNI</option>
+            <option value="bri">BRI</option>
+            <option value="mandiri">MANDIRI</option>
           </select>
           <label>Pilih bank</label>
         </div>  
