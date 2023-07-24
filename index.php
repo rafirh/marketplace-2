@@ -7,7 +7,7 @@ include"header.php";
 <!DOCTYPE html>
 <html>
 <header>
-		<title>Home | 	Jejak.kos</title>
+		<title>Home | Jejak.kos</title>
 </header>
 <style>
 	
