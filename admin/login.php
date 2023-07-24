@@ -22,18 +22,18 @@ include '../koneksi.php';
         </div>
         <form method="post">
           <div class="card-content">
-            <div class="input-field">
+            <div class="input-field" onclick="this.focus();">
               <i class="material-icons prefix">account_circle</i>
-              <label >Username</label>
-              <input type="text" name="user">
+              <label for="user">Username</label>
+              <input type="text" name="user" id="user">
             </div><br>
-            <div class="input-field">
+            <div class="input-field" onclick="this.focus();">
               <i class="material-icons prefix">vpn_key</i>
-              <label >Password</label>
-              <input type="password" name="pass">
+              <label for="pass">Password</label>
+              <input type="password" name="pass" id="pass">
             </div>
-                        <button class="btn red darken-4 right " name="login">Login</button>
-                        <br>  
+            <button class="btn red darken-4 right " name="login">Login</button>
+            <br>  
           </div>
 
         </form>
@@ -48,7 +48,7 @@ include '../koneksi.php';
           {
             $_SESSION['admin']=$ambil->fetch_assoc();
             echo "<script>alert('Login Sukses') </script>";
-            echo "<meta http-equiv='refresh' content='1;url=index_admin.php'> ";
+            echo "<meta http-equiv='refresh' content='1;url=index.php'> ";
           } 
           else
           {
