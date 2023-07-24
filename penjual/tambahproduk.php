@@ -18,41 +18,41 @@ while ($pecah = $ambil->fetch_assoc()) {
 	<br>
 	<form method="post" enctype="multipart/form-data">
 		<div class="row">
-			<div class="input-field col s6">
+			<div class="input-field col s6" onclick="this.focus();">
 				<i class="material-icons prefix">account_circle</i>
-				<label>Nama Produk</label>
-				<input type="text" name="nama" required autocomplete="off">
+				<label for="nama">Nama Produk</label>
+				<input type="text" name="nama" required autocomplete="off" id="nama">
 			</div>
-			<div class="input-field col s6">
+			<div class="input-field col s6" onclick="this.focus();">
 				<i class="material-icons prefix">local_offer</i>
-				<select name="id_kategori" class="validate" required >
-					<option></option>
+				<select name="id_kategori" class="validate" required id="id_kategori">
+					<option disabled selected>Pilih kategori</option>
 					<?php foreach ($datakategori as $key => $value): ?>
 						<option value="<?php echo $value['id_kategori'] ?>"><?php echo $value['nama_kategori'] ?></option>
 					<?php endforeach ?>
 				</select>
-				<label>kategori Produk</label>
+				<label for="id_kategori">Kategori Produk</label>
 			</div>		
 		</div>
 		<div class="row">
-			<div class="input-field col s4">
+			<div class="input-field col s4" onclick="this.focus();">
 				<i class="material-icons prefix">attach_money</i>
-				<label>Harga (Rp)</label>
-				<input type="number" name="harga" class="validate" required min="1">
+				<label for="harga">Harga (Rp)</label>
+				<input type="number" name="harga" class="validate" required min="1" id="harga">
 			</div>
-			<div class="input-field col s4">
+			<div class="input-field col s4" onclick="this.focus();">
 				<i class="material-icons prefix">gavel</i>
-				<label>Berat (Gr)</label>
-				<input type="number" name="berat" class="validate" required min="1">
+				<label for="berat">Berat (Gr)</label>
+				<input type="number" name="berat" class="validate" required min="1" id="berat">
 			</div>
-			<div class="input-field col s4">
+			<div class="input-field col s4" onclick="this.focus();">
 				<i class="material-icons prefix">description</i>
-				<label>Stok Produk</label>
-				<input type="number" name="stok_produk" class="validate" required min="1">
+				<label for="stok_produk">Stok Produk</label>
+				<input type="number" name="stok_produk" class="validate" required min="1" id="stok_produk">
 			</div>
 		</div>
 		<div class="row">
-			<div class="input-field col s12">
+			<div class="input-field col s12" onclick="this.focus();">
 				<i class="material-icons prefix">description</i>
 				<label>Deskripsi Produk</label>
 				<textarea name="deskripsi" class="materialize-textarea validate" rows="5" required></textarea>
