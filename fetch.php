@@ -1,8 +1,8 @@
 <?php
 
-//fetch.php
+include 'config.php';
 
-$connect = new PDO('mysql:host=localhost;dbname=testing', 'root', '');
+$connect = new PDO("mysql:host=$db_host;dbname=$db_name", "$db_username", "$db_password");
 
 $query = "
 SELECT * FROM business ORDER BY id DESC
