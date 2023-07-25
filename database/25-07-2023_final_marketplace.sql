@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 24, 2023 at 08:45 AM
+-- Generation Time: Jul 25, 2023 at 05:34 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -212,7 +212,8 @@ INSERT INTO `pembayaran` (`id_pembayaran`, `id_pembelian`, `nama`, `bank`, `juml
 (21, 46, 'Wang', 'bni', 9010000, '2023-07-24', '20230724061843Screen Shot 2023-06-29 at 13.01.06.png', '6'),
 (22, 47, 'Wang', 'bca', 7084000, '2023-07-24', '20230724074201Screen Shot 2023-07-18 at 10.32.44.png', '6'),
 (23, 48, 'Wang', 'bca', 7051000, '2023-07-24', '20230724075116Screen Shot 2023-07-18 at 10.32.44.png', '6'),
-(24, 48, 'Wang', 'bca', 7051000, '2023-07-24', '20230724083646Screen Shot 2023-06-29 at 13.01.06.png', '6');
+(24, 48, 'Wang', 'bca', 7051000, '2023-07-24', '20230724083646Screen Shot 2023-06-29 at 13.01.06.png', '6'),
+(25, 49, 'Wang', 'bca', 14020000, '2023-07-24', '20230724165343Screen Shot 2023-06-29 at 13.01.06.png', '6');
 
 -- --------------------------------------------------------
 
@@ -264,7 +265,8 @@ INSERT INTO `pembelian` (`id_pembelian`, `id_pelanggan`, `id_toko`, `id_pengirim
 (44, '8', '6', 0, '', '2023-07-21', 770000, 'bandarlamoung', '', 0, 'Lampung', 'Bandar Lampung', 'Kota', '35139', 'jne', 'REG', 20000, '1-2', 'sedang diproses'),
 (46, '15', '6', 6, 'Bangka Barat', '2023-07-24', 9010000, 'In amet dolores del', 'RESI2023N207z2724', 100, 'DKI Jakarta', 'Jakarta Pusat', 'Kota', '10540', 'jne', 'CTC', 10000, '1-2', 'sedang diproses'),
 (47, '15', '6', 6, 'Bangka Barat', '2023-07-24', 7084000, 'Molestiae qui aut om', 'RESI2023J107m6924', 500, 'Sulawesi Utara', 'Bolaang Mongondow Selatan', 'Kabupaten', '95774', 'jne', 'OKE', 84000, '6-8', 'sedang diproses'),
-(48, '15', '6', 6, 'Bangka Barat', '2023-07-24', 7051000, 'Aliquam dolorem volu', 'RESI2023O1007y1924', 500, 'Kalimantan Tengah', 'Barito Timur', 'Kabupaten', '73671', 'jne', 'OKE', 51000, '5-7', 'sedang diproses');
+(48, '15', '6', 6, 'Bangka Barat', '2023-07-24', 7051000, 'Aliquam dolorem volu', 'RESI2023O1007y1924', 500, 'Kalimantan Tengah', 'Barito Timur', 'Kabupaten', '73671', 'jne', 'OKE', 51000, '5-7', 'sedang diproses'),
+(49, '15', '6', 1, 'Bangka Barat', '2023-07-24', 14020000, 'Sit et a veniam op', '', 1000, 'Jawa Timur', 'Malang', 'Kota', '65112', 'jne', 'OKE', 20000, '2-3', 'sedang diproses');
 
 -- --------------------------------------------------------
 
@@ -310,7 +312,8 @@ INSERT INTO `pembelian_produk` (`id_pembelian_produk`, `id_pembelian`, `id_produ
 (60, 45, 28, '6', 1, 'Iphone 12', 7000000, 500, 500, 7000000),
 (61, 46, 26, '6', 1, 'Macbook', 9000000, 100, 100, 9000000),
 (62, 47, 28, '6', 1, 'Iphone 12', 7000000, 500, 500, 7000000),
-(63, 48, 28, '6', 1, 'Iphone 12', 7000000, 500, 500, 7000000);
+(63, 48, 28, '6', 1, 'Iphone 12', 7000000, 500, 500, 7000000),
+(64, 49, 28, '6', 2, 'Iphone 12', 7000000, 500, 1000, 14000000);
 
 -- --------------------------------------------------------
 
@@ -364,7 +367,7 @@ CREATE TABLE `produk` (
   `deskripsi_produk` text NOT NULL,
   `stok_produk` int(5) NOT NULL,
   `stok_awal` int(11) NOT NULL,
-  `phone` int(30) NOT NULL
+  `phone` int(30) NOT NULL INVISIBLE DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -383,7 +386,7 @@ INSERT INTO `produk` (`id_produk`, `id_kategori`, `id_toko`, `nama_produk`, `har
 (24, 4, '8', 'jam', 350000, 20, '20230716155713jam1.png.png', 'https://wa.link/qtjp3v', 1, 2, 0),
 (25, 1, '6', 'Airpods', 350000, 10, '2023072108281320210131001528Apple_AirPods_Pro_-_White_1024x1024.png', 'Masih baru dn original', 0, 2, 0),
 (26, 1, '6', 'Macbook', 9000000, 100, '2023072108291120210131001703macbook pro.png', 'Tidak ada kendala kualitas terjamin', 0, 1, 0),
-(28, 1, '6', 'Iphone 12', 7000000, 500, '2023072108331020210131002554iphone-12-pro-max-blue-hero.png', 'Kualitas terjamin hp original', 2, 5, 0);
+(28, 1, '6', 'Iphone 12', 7000000, 500, '2023072108331020210131002554iphone-12-pro-max-blue-hero.png', 'Kualitas terjamin hp original', 0, 5, 0);
 
 -- --------------------------------------------------------
 
@@ -396,17 +399,21 @@ CREATE TABLE `review_table` (
   `user_name` varchar(200) NOT NULL,
   `user_rating` int(1) NOT NULL,
   `user_review` text NOT NULL,
-  `datetime` int(11) NOT NULL
+  `datetime` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `review_table`
 --
 
-INSERT INTO `review_table` (`review_id`, `user_name`, `user_rating`, `user_review`, `datetime`) VALUES
-(9, 'bela', 3, 'nice', 1689496876),
-(10, 'alfa', 3, 'good', 1689507459),
-(11, 'heni', 5, 'top', 1689829493);
+INSERT INTO `review_table` (`review_id`, `user_name`, `user_rating`, `user_review`, `datetime`, `product_id`) VALUES
+(9, 'bela', 3, 'nice', 1689496876, 28),
+(10, 'alfa', 3, 'good', 1689507459, 28),
+(11, 'heni', 5, 'top', 1689829493, 28),
+(12, 'Joko', 5, 'Bagus', 1690254211, 28),
+(13, 'Rafi', 0, 'Cheap', 1690254872, 26),
+(14, 'Agus', 5, 'Expensive', 1690254893, 26);
 
 -- --------------------------------------------------------
 
@@ -564,19 +571,19 @@ ALTER TABLE `pelanggan`
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_pembayaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `pembelian`
 --
 ALTER TABLE `pembelian`
-  MODIFY `id_pembelian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id_pembelian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `pembelian_produk`
 --
 ALTER TABLE `pembelian_produk`
-  MODIFY `id_pembelian_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id_pembelian_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `pengiriman`
@@ -588,13 +595,13 @@ ALTER TABLE `pengiriman`
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `review_table`
 --
 ALTER TABLE `review_table`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `toko`
