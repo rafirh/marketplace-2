@@ -1,3 +1,10 @@
+<?php
+    if (!$_GET['product_id']) {
+        header('Location: index.php');
+    }
+    $product_id = $_GET['product_id'];
+?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -209,7 +216,7 @@ $(document).ready(function(){
             $.ajax({
                 url:"submit_rating.php",
                 method:"POST",
-                data:{rating_data:rating_data, user_name:user_name, user_review:user_review},
+                data:{rating_data:rating_data, user_name:user_name, user_review:user_review, product_id:<?= $product_id; ?>},
                 success:function(data)
                 {
                     $('#review_modal').modal('hide');
@@ -230,7 +237,7 @@ $(document).ready(function(){
         $.ajax({
             url:"submit_rating.php",
             method:"POST",
-            data:{action:'load_data'},
+            data:{action:'load_data', product_id:<?= $product_id; ?>},
             dataType:"JSON",
             success:function(data)
             {

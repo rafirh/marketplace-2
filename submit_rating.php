@@ -1,8 +1,8 @@
 <?php
 
-//submit_rating.php
+include 'config.php';
 
-$connect = new PDO("mysql:host=localhost;dbname=final_marketplace", "root", "");
+$connect = new PDO("mysql:host=$db_host;dbname=$db_name", "$db_username", "$db_password");
 
 if(isset($_POST["rating_data"]))
 {
@@ -11,13 +11,14 @@ if(isset($_POST["rating_data"]))
 		':user_name'		=>	$_POST["user_name"],
 		':user_rating'		=>	$_POST["rating_data"],
 		':user_review'		=>	$_POST["user_review"],
+		':product_id'		=>	$_POST["product_id"],
 		':datetime'			=>	time()
 	);
 
 	$query = "
 	INSERT INTO review_table 
-	(user_name, user_rating, user_review, datetime) 
-	VALUES (:user_name, :user_rating, :user_review, :datetime)
+	(user_name, user_rating, user_review, product_id, datetime) 
+	VALUES (:user_name, :user_rating, :user_review, :product_id, :datetime)
 	";
 
 	$statement = $connect->prepare($query);
@@ -30,6 +31,7 @@ if(isset($_POST["rating_data"]))
 
 if(isset($_POST["action"]))
 {
+	$product_id = $_POST["product_id"];
 	$average_rating = 0;
 	$total_review = 0;
 	$five_star_review = 0;
@@ -41,8 +43,9 @@ if(isset($_POST["action"]))
 	$review_content = array();
 
 	$query = "
-	SELECT * FROM review_table 
-	ORDER BY review_id DESC
+	SELECT * FROM review_table
+	WHERE product_id = '".$product_id."'
+	ORDER BY datetime DESC
 	";
 
 	$result = $connect->query($query, PDO::FETCH_ASSOC);

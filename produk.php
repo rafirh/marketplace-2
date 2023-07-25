@@ -63,7 +63,7 @@ function cleanPhoneNumber($phone)
 									<a href="detail.php?id=<?php echo $perproduk['id_produk']; ?>" class="btn waves-effect waves-light left green ">Detail</a>
 									<a href="beli.php?id=<?php echo $perproduk['id_produk']; ?>" class="btn waves-effect waves-light right">Beli</a></span>
 								<?php endif; ?>
-								<a href="review.php" class="btn waves-effect waves-light right">Review</a>
+								<a href="review.php?product_id=<?= $perproduk['id_produk'] ?>" class="btn waves-effect waves-light right">Review</a>
 								<a href="http://wa.me/<?= cleanPhoneNumber($perproduk['telepon_toko']) ?>" target="_blank" rel="noopener noreferrer">
 									<img src="./assets/img/whatsapp.svg" style="width: 30px; height: 30px;" title="Hubungi Penjual">
 								</a>
